@@ -26,7 +26,8 @@ def trapetsgrafikN(f, presicion, end):
     drawfunc(t,f)
     for i in range (0,presicion):
         x=np.array([i*end/presicion,i*end/presicion,(i+1)*end/presicion,(i+1)*end/presicion])
-        y=np.array([0,(f(i*end/presicion)+f((i+1)*end/presicion))/2,(f(i*end/presicion)+f((i+1)*end/presicion))/2,0])
+        y-value = (f(i*end/presicion)+f((i+1)*end/presicion))/2 #denligt dry principen beräknas trapetsmetodens y-värde här och sätts till en variabel
+        y=np.array([0,y-value,y-value,0])
         plt.plot(x,y)
         plt.fill_between(x, y, facecolor='r', alpha=0.25)
     plt.title("Trapets")

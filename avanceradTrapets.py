@@ -24,13 +24,14 @@ def trapetsgrafikN(f, presicion, end): #Funktionen tar tre variabler, en funktio
     drawFunc(t,f) #Här ritas den faktiska funktionen
     for i in range (0,presicion):
         x=np.array([i*end/presicion,i*end/presicion,(i+1)*end/presicion,(i+1)*end/presicion]) # för att ge korrekt bas på lådorna beräknas två pukter som basen går emellan och dessa läggs in som vektorer i x koordinaten
-        y=np.array([0,(f(i*end/presicion)+f((i+1)*end/presicion))/2,(f(i*end/presicion)+f((i+1)*end/presicion))/2,0]) #samma sak händer här med y koordinaten nämnvärt är dock att funktionen här använder sig av trapetsmetoden vilket gör att yvärdet istället beräknas med slutvärde*(f(a)+f(b))/2/presition
+        y-value = (f(i*end/presicion)+f((i+1)*end/presicion))/2 #denligt dry principen beräknas trapetsmetodens y-värde här och sätts till en variabel
+        y=np.array([0,y-value,y-value,0]) #samma sak händer här med y koordinaten nämnvärt är dock att funktionen här använder sig av trapetsmetoden vilket gör att yvärdet istället beräknas med slutvärde*(f(a)+f(b))/2/presition
         plt.plot(x,y)
         plt.fill_between(x, y, facecolor='r', alpha=0.25)
     plt.title("Trapets")
     plt.savefig("FunktionAvanceradTrapetsN.png")
 
-# trapetsgrafikN(f,10,1)
+trapetsgrafikN(f,1000,6)
 i=0
 while trapetsN(f,10000,1000000000)/2 > trapetsN(f,10000,i): #här loopas trapetsfunktionen igenom fr att se när den träffar värdet på 1/2 av en halvan av just denn funktionen
     i+=1
