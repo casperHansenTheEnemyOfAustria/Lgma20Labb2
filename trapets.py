@@ -16,7 +16,7 @@ def trapetsN(function, presicion, end): #Definiera en funktion av 0 variabler, s
     sum = 0 #summan av rektanglars area (bredd 1/10, höjd f(x))
     print(presicion)
     for k in range (0,presicion):
-        sum += (1/presicion)*(function(end*k/presicion)+function(end*(k+1)/presicion))/2
+        sum += (end/presicion)*(function(end*k/presicion)+function(end*(k+1)/presicion))/2
         print(sum)
     print ( sum )
 

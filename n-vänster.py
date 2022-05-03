@@ -14,7 +14,7 @@ def f(x):
 def RiemannvänsterN(function, presicion, end): #Funktionen tar tre variabler, en funktion, prestionen på beräkningen samt ett slutvärde
     sum = 0
     for k in range (0,presicion): #från nott till presitionsvärdet beräknas nu summan av alla rektanglar
-        sum += (1/presicion)*function(end*k/presicion)#varje rektangel ritas med breddet 1/presition och hödjen slutvärdet*index/presition
+        sum += (end/presicion)*function(end*k/presicion)#varje rektangel ritas med breddet slutvärde/presition och hödjen slutvärdet*index/presition
     print ( sum ) #sumnan printas
 
 def RiemanngrafikvänsterN(f, presicion, end): #funktionen tar samma variabler som i förra

@@ -15,7 +15,7 @@ def f(x):
 def trapetsN(function, presicion, end): #Definiera en funktion av 0 variabler, som räknar
     sum = 0 #summan av rektanglars area (bredd 1/10, höjd f(x))
     for k in range (0,presicion): #från noll till presitionsvärdet beräknas nu summan av alla rektanglar
-        sum += (1/presicion)*(function(end*k/presicion)+function(end*(k+1)/presicion))/2 #varje rektangel ritas med breddet 1/presition och hödjen slutvärde*(f(a)+f(b))/2/presition
+        sum += (end/presicion)*(function(end*k/presicion)+function(end*(k+1)/presicion))/2 #varje rektangel ritas med breddet slutvärde/presition och hödjen slutvärde*(f(a)+f(b))/2/presition
     return ( sum ) #sumnan returneras
 
 
@@ -24,15 +24,17 @@ def trapetsgrafikN(f, presicion, end): #Funktionen tar tre variabler, en funktio
     drawFunc(t,f) #Här ritas den faktiska funktionen
     for i in range (0,presicion):
         x=np.array([i*end/presicion,i*end/presicion,(i+1)*end/presicion,(i+1)*end/presicion]) # för att ge korrekt bas på lådorna beräknas två pukter som basen går emellan och dessa läggs in som vektorer i x koordinaten
-        y-value = (f(i*end/presicion)+f((i+1)*end/presicion))/2 #denligt dry principen beräknas trapetsmetodens y-värde här och sätts till en variabel
-        y=np.array([0,y-value,y-value,0]) #samma sak händer här med y koordinaten nämnvärt är dock att funktionen här använder sig av trapetsmetoden vilket gör att yvärdet istället beräknas med slutvärde*(f(a)+f(b))/2/presition
+        yValue = (f(i*end/presicion)+f((i+1)*end/presicion))/2 #denligt dry principen beräknas trapetsmetodens y-värde här och sätts till en variabel
+        y=np.array([0,yValue,yValue,0]) #samma sak händer här med y koordinaten nämnvärt är dock att funktionen här använder sig av trapetsmetoden vilket gör att yvärdet istället beräknas med slutvärde*(f(a)+f(b))/2/presition
         plt.plot(x,y)
         plt.fill_between(x, y, facecolor='r', alpha=0.25)
     plt.title("Trapets")
     plt.savefig("FunktionAvanceradTrapetsN.png")
 
-trapetsgrafikN(f,1000,6)
+
 i=0
-while trapetsN(f,10000,1000000000)/2 > trapetsN(f,10000,i): #här loopas trapetsfunktionen igenom fr att se när den träffar värdet på 1/2 av en halvan av just denn funktionen
+while trapetsN(f,10000,500)/2 > trapetsN(f,10000,i): #här loopas trapetsfunktionen igenom fr att se när den träffar värdet på 1/2 av en halvan av just denn funktionen
     i+=1
+    print(i)
+# trapetsgrafikN(f,10000,1)
 print ("svaret är " + str(trapetsN(f,10000,i)))

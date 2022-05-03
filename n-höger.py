@@ -16,7 +16,7 @@ def RiemannhögerN(function, presicion, end): #Definiera en funktion av 0 variab
     sum = 0 #summan av rektanglars area (bredd 1/10, höjd f(x))
     print(presicion)
     for k in range (0,presicion):
-        sum += (1/presicion)*function(end*(k+1)/presicion)
+        sum += (end/presicion)*function(end*(k+1)/presicion)
         print(sum)
     print ( sum )
 
