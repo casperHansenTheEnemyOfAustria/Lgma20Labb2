@@ -35,7 +35,7 @@ def trapetsgrafikN(f, presicion, end): #Funktionen tar tre variabler, en funktio
 
 i=0
 while trapetsN(f,10000,500)/2 > trapetsN(f,10000,i): #här loopas trapetsfunktionen igenom fr att se när den träffar värdet på 1/2 av en halvan av just denn funktionen
-    i+=1
+    i+=0.001
     print(i)
-# trapetsgrafikN(f,10000,1)
+trapetsgrafikN(f,10,2.5)
 print ("svaret är " + str(trapetsN(f,10000,i)))

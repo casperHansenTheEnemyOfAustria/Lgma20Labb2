@@ -9,7 +9,7 @@ def drawFunc(t, function):
         plt.plot(t,y)
 
 def f(x):
-    return x**2
+    return math.sin(30*x)
 
 
 def RiemannhögerN(function, presicion, end): #Definiera en funktion av 0 variabler, som räknar
@@ -17,7 +17,6 @@ def RiemannhögerN(function, presicion, end): #Definiera en funktion av 0 variab
     print(presicion)
     for k in range (0,presicion):
         sum += (end/presicion)*function(end*(k+1)/presicion)
-        print(sum)
     print ( sum )
 
 def RiemanngrafikhögerN(f, presicion, end):
@@ -32,5 +31,5 @@ def RiemanngrafikhögerN(f, presicion, end):
     plt.title("Höger")
     plt.savefig("FunktionNHöger.png")
 
-RiemannhögerN(f,10,1)
-RiemanngrafikhögerN(f,10,1)
+RiemannhögerN(f,10000,1)
+RiemanngrafikhögerN(f,10000,1)
