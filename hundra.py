@@ -8,8 +8,8 @@ def f(x):
 
 def RiemannHundra(function): #Definiera en funktion av 0 variabler, som räknar
     sum = 0 #summan av rektanglars area (bredd 1/10, höjd f(x))
-    for k in range (0,10):
-        sum += (1/10)*function(k/10)
+    for k in range (0,100):
+        sum += (1/100)*function(k/100)
     print ( sum )
 
 def RiemanngrafikHundra(f):

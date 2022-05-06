@@ -33,9 +33,10 @@ def trapetsgrafikN(f, presicion, end): #Funktionen tar tre variabler, en funktio
     plt.savefig("FunktionAvanceradTrapetsN.png")
 
 
-i=0
-while trapetsN(f,10000,500)/2 > trapetsN(f,10000,i): #här loopas trapetsfunktionen igenom fr att se när den träffar värdet på 1/2 av en halvan av just denn funktionen
-    i+=0.001
+i=0.67448
+# trapetsN(f,10000,500)/2
+while 0.25 > trapetsN(f,10000,i): #här loopas trapetsfunktionen igenom fr att se när den träffar värdet på 1/2 av en halvan av just denn funktionen
+    i+=0.000000001
     print(i)
-trapetsgrafikN(f,10,2.5)
-print ("svaret är " + str(trapetsN(f,10000,i)))
+# trapetsgrafikN(f,50,10)
+print ("svaret är " + str(i))
